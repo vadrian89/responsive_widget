@@ -19,16 +19,16 @@ class ResponsiveUtils {
   static bool isTablet(BuildContext context) =>
       !isPhone(context) && MediaQuery.of(context).size.width < 840;
 
-  /// Checks if the device is a landscape tablet or small screen desktop.
+  /// Checks if the device is a landscape tablet or laptop display.
   ///
   /// Sometimes we need to differentiate if the screen is smaller or larger.
   /// Such a case is to show a [NavigationRail] on smaller screens while preferring a full [Drawer] on larger screens.
-  /// We will treat larger screens as those which have screens of 1280+ dp.
-  static bool isLandscapeTablet(BuildContext context) => MediaQuery.of(context).size.width < 1280;
+  /// We will treat larger screens as those which have screens of 1440+ dp.
+  static bool isLaptop(BuildContext context) => MediaQuery.of(context).size.width < 1440;
 
   /// Checks if the device is a desktop based on the device's width.
   ///
   /// Based on the Android developer guide if it has 840+ dp width is a tablet in landscape.
   /// For convenience we will treat tablets in landscape and desktop the same way.
-  static bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width >= 840;
+  static bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width >= 1440;
 }

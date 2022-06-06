@@ -6,33 +6,26 @@ import '../infrastructure/responsive_utils.dart';
 class ResponsiveDesktopWidget extends StatelessWidget {
   /// Builds the widget appropriate for displaying on smaller screens (low res desktops or landscape tablets).
   ///
-  /// It's called if [ResponsiveUtils.isLandscapeTablet] returns `true`.
-  final Widget Function(BuildContext context) smallBuilder;
+  /// It's called if [ResponsiveUtils.isLaptop] returns `true`.
+  final Widget Function(BuildContext context) laptopBuilder;
 
   /// Builds the widget appropriate for displaying on larger screens.
   ///
-  /// It's called if [ResponsiveUtils.isLandscapeTablet] returns `false`.
-  final Widget Function(BuildContext context) largeBuilder;
+  /// It's called if [ResponsiveUtils.isLaptop] returns `false`.
+  final Widget Function(BuildContext context) desktopBuilder;
 
   /// Initialise a new responsive widget.
   const ResponsiveDesktopWidget({
     Key? key,
-    required this.smallBuilder,
-    required this.largeBuilder,
+    required this.laptopBuilder,
+    required this.desktopBuilder,
   }) : super(key: key);
 
   @protected
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-        builder: (context, _) {
-          if (!ResponsiveUtils.isDesktop(context)) {
-            throw const NotDesktopException();
-          }
-          if (ResponsiveUtils.isLandscapeTablet(context)) {
-            return smallBuilder(context);
-          }
-          return largeBuilder(context);
-        },
+        builder: (context, _) =>
+            ResponsiveUtils.isLaptop(context) ? laptopBuilder(context) : desktopBuilder(context),
       );
 }
 

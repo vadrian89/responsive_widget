@@ -39,8 +39,8 @@ class ExamplePage extends StatelessWidget {
           phoneBuilder: (_) => const Center(child: Text("Phone widget")),
           tabletBuilder: (_) => const Center(child: Text("Tablet widget")),
           desktopBuilder: (_) => ResponsiveDesktopWidget(
-            smallBuilder: (_) => const Center(child: Text("Small desktop widget")),
-            largeBuilder: (_) => const Center(child: Text("Large esktop widget")),
+            laptopBuilder: (_) => const Center(child: Text("Laptop widget")),
+            desktopBuilder: (_) => const Center(child: Text("Desktop widget")),
           ),
         ),
       );
