@@ -4,12 +4,12 @@ import '../infrastructure/responsive_utils.dart';
 
 /// A widget which differentiates between smaller and larger desktop screens.
 class ResponsiveDesktopWidget extends StatelessWidget {
-  /// Builds the widget appropriate for displaying on smaller screens (low res desktops or landscape tablets).
+  /// Builds the widget appropriate for displaying on smaller screens (low res desktops, laptops and landscape tablets).
   ///
   /// It's called if [ResponsiveUtils.isLaptop] returns `true`.
   final Widget Function(BuildContext context) laptopBuilder;
 
-  /// Builds the widget appropriate for displaying on larger screens.
+  /// Builds the widget appropriate for displaying on large desktop screens.
   ///
   /// It's called if [ResponsiveUtils.isLaptop] returns `false`.
   final Widget Function(BuildContext context) desktopBuilder;
